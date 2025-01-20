@@ -1,11 +1,15 @@
-
+"""
+    Name: app.py
+    Author: Jessica Soler
+    Date: 1/20/25
+    Purpose: 
+"""
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 
-# import the library_database module
-import db_book
-import db_author
+# import the db_library module
+import db_library
 
 #----Class----------------------------------------------------------------------------------------------------#
 class LibraryApp:
@@ -13,6 +17,9 @@ class LibraryApp:
         self.main_app_window = main_app_window
         self.main_app_window.title("Jessica's Library Database")
         self.main_app_window.geometry("1200x500")
+        
+        # create tables
+        db_library.create_tables()
         
         # set up frames - database, input fields, and buttons
         self.create_frames()
@@ -25,8 +32,6 @@ class LibraryApp:
         
         # set up database display
         self.create_database_display()
-        
-        #CREATE TABELS#
         
         # run window
         self.main_app_window.mainloop()
@@ -187,7 +192,7 @@ class LibraryApp:
             self.tree.delete(item)
             
         # fetch updated records from the database
-        books = db_book.fetch_books()
+        books = db_library.fetch_books()
         
         # insert the updated records into the treeview
         for book in books:
@@ -196,7 +201,7 @@ class LibraryApp:
         
         
 #---WRAPPER FUNCTIONS----------------------------------------------------------------------------------------------------#
-# Call to: library_database.py
+# Call to: db_library.py
 # Add, Edit, Save, Delete, Close
 
     def get_entry(self):
@@ -216,7 +221,7 @@ class LibraryApp:
         title, author, genre, rating, pub_date = self.get_entry()
 
         # call database function to add a book
-        db_book.add_book(title, author, genre, rating, pub_date)
+        db_library.add_book(title, author, genre, rating, pub_date)
         
         # update the treeview after adding a book
         self.update_treeview()
@@ -253,7 +258,7 @@ class LibraryApp:
             return
         
         book_id = self.tree.item(selected_item)["values"][0]
-        db_book.delete_book(book_id)
+        db_library.delete_book(book_id)
         self.update_treeview()
         
         
@@ -266,7 +271,7 @@ class LibraryApp:
         bk_genre = self.genre_entry.get()
         bk_rating = self.rating_entry.get()
         bk_pub_date = self.pub_date_entry.get()  
-        db_book.save_book(bk_id, bk_title, bk_author, bk_genre, bk_rating, bk_pub_date)
+        db_library.save_book(bk_id, bk_title, bk_author, bk_genre, bk_rating, bk_pub_date)
         
         self.update_treeview()
         self.clear_input_fields()
@@ -276,7 +281,7 @@ class LibraryApp:
         self.main_app_window.quit()
     
     # def call_clear_database(self):
-    #     library_database.clear_database()
+    #     db_library.clear_database()
     #     self.update_treeview()
 
 # initialize tkinter and run the app
