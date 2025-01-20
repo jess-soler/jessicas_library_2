@@ -35,3 +35,45 @@ Develop a GUI or command-line interface for users to:
 
 ### Goal
 By the end of the project, I aim to have a fully functional library management tool that combines automation (barcode scanning and API integration), data storage, analytics, and user-friendly interfaces. 
+
+### Week 2
+- update code into new repository
+- update documentation (ERD and others from Final project last term to represent the new project)
+- create tables
+- new wireframe!!!!!
+
+### Week 3
+- turn db_book and db_author into classes
+- adjust functions to work with classes
+- Make sure GUI works with new classes
+
+### Week 4
+- GUI and Database testing
+- Begin Implementing barcode
+  
+### Week 5
+- Barcode GUI
+### Week 6
+- Barcode API
+### Week 7
+- Barcode
+  
+### Week 8
+- Data analytics tools
+### Week 9
+- Data analytics
+### Week 10
+- Data analytics
+### Week 11
+- Data analytics 
+
+### Week 12
+- 
+### Week 13
+- testing and debugging
+### Week 14
+- testing and debugging
+### Week 15
+- present
+
+### Week 16
