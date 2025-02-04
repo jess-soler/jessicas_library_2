@@ -137,7 +137,7 @@ This README provides a detailed overview of the program's features, usage, and s
 - https://www.amazon.com/gp/product/B07WG1ZKZR/ref=ox_sc_act_image_14?smid=A1SP5E24FDDAMS&psc=1
 
 
-# Librarian
+# Library App
 
 A Python ISBN barcode scanner that uses a barcode scanner (Scan Avenger SA8900) and stores the ISBN numbers in an SQLite database. I will use an API (name of API) to look up the book details using the ISBN number as save the information into a database using SQLite.  The application uses tkinter for a GUI
 
