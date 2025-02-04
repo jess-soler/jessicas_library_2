@@ -192,6 +192,12 @@ Clone the repository to your local machine:
 list the MAIN_APP_NAME to run
 other general directions to use the app
 
+- Scan an ISBN barcode → Scanner types the number into the isbn_entry field.
+- Scanner sends "Enter" key → on_barcode_scanned function is triggered.
+- Fetch book details from Open Library API using ISBN.
+- Store book details in an SQLite database.
+- Show confirmation message when added successfully.
+
 ## Configuration
 
 The program contains a few configuration options:
