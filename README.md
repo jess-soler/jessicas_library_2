@@ -115,11 +115,6 @@ By the end of the project, I aim to have a fully functional library management t
 
 
 This README provides a detailed overview of the program's features, usage, and setup instructions.
-### My_Library_App
-
-### Hardware Used
-- ScanAvenger SA8900
-- https://www.amazon.com/gp/product/B07WG1ZKZR/ref=ox_sc_act_image_14?smid=A1SP5E24FDDAMS&psc=1
 
 
 # Library App
@@ -128,7 +123,11 @@ A Python ISBN barcode scanner that uses a barcode scanner and stores the ISBN nu
 
 Using pyzbar to decode the one-dimensional barcode and QR code. 
 
+### Hardware Used
+- ScanAvenger SA8900
+- https://www.amazon.com/gp/product/B07WG1ZKZR/ref=ox_sc_act_image_14?smid=A1SP5E24FDDAMS&psc=1
 
+- 
 ## Features
 
 - Real-time barcode scanning using a barcode scanner
