@@ -14,6 +14,8 @@ Store book information in a relational database with fields for:
 - Author(s)
 - Publisher
 - Publication Date
+- Description
+- Book Cover Image
 - Rating
   
 ### Data Analytics
@@ -22,14 +24,17 @@ Perform analytics on the library database to generate insights, such as:
 - Popular authors or publishers
 - Trends based on book types or publication years
 - Book recommendations (API?)
-- NumPy, MatPlotLib, Pandas, SciPy, or Seaborn 
+- NumPy, MatPlotLib, Pandas, SciPy, or Seaborn
+- Get Book Recommendations 
 
 ### User Interface
 Develop a GUI or command-line interface for users to:
 - Add books via barcode scanning.
 - View book details
+- Allow manual entry for missing book details
 - Search or filter books by various attributes (title, author, etc.).
-- Display analytics results.
+- Display analytics results
+
 
 ### Future Updates
 - Portability: Package the project for cross-platform use with an intuitive setup.
@@ -37,54 +42,36 @@ Develop a GUI or command-line interface for users to:
 ### Goal
 By the end of the project, I aim to have a fully functional library management tool that combines automation (barcode scanning and API integration), data storage, analytics, and user-friendly interfaces. 
 
-### Week 2
-- update code into new repository
+### DOCUMENTATION NEEDED TO DO
 - update documentation (ERD and others from Final project last term to represent the new project)
 - create tables
 - new wireframe!!!!!
 
-### Week 3
+### CLASS ORGANIZATION TODO
 - turn db_book and db_author into classes
 - adjust functions to work with classes
 - Make sure GUI works with new classes
+
+### APIS FOR BOOK REVTRIEVAL/RECOMMENDATIONS TODO
+- Open Library API
+- Amazon???
+- Google???
+- other???  
+
+### OTHER TODO 
 - order barcode scanner
-- resarch APIs for book information
-- research APIs for book recommendations
-- research pyzbar and opencv
-
-### Week 4
-- GUI and Database testing
 - Begin Implementing barcode
-- import cv2 
-- from pyzbar.pyzbar import decode 
-  
-### Week 5
-- Barcode GUI
-### Week 6
-- Barcode API
-### Week 7
-- Barcode
-  
-### Week 8
-- Data analytics tools
-### Week 9
-- Data analytics
-### Week 10
-- Data analytics
-### Week 11
-- Data analytics 
-
-### Week 12
+- Research libraries for data analytics
+- Research API and JSON file handling
+- Research 5 stars/book cover imaging into tkinter treeview
 - 
-### Week 13
-- testing and debugging
-### Week 14
-- testing and debugging
-### Week 15
-- present
+  
+### TESTING TODO
+- GUI and Database testing
+- Error handling for missing ISBN records
 
-### Week 16
 
+ 
 
 
 
@@ -128,12 +115,7 @@ By the end of the project, I aim to have a fully functional library management t
 
 
 This README provides a detailed overview of the program's features, usage, and setup instructions.
-
-
-
-
-
-
+### My_Library_App
 
 ### Hardware Used
 - ScanAvenger SA8900
