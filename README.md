@@ -22,6 +22,7 @@ Perform analytics on the library database to generate insights, such as:
 - Popular authors or publishers
 - Trends based on book types or publication years
 - Book recommendations (API?)
+- NumPy, MatPlotLib, Pandas, SciPy, or Seaborn 
 
 ### User Interface
 Develop a GUI or command-line interface for users to:
@@ -139,7 +140,7 @@ This README provides a detailed overview of the program's features, usage, and s
 
 # Library App
 
-A Python ISBN barcode scanner that uses a barcode scanner (Scan Avenger SA8900) and stores the ISBN numbers in an SQLite database. I will use an API (name of API) to look up the book details using the ISBN number as save the information into a database using SQLite.  The application uses tkinter for a GUI
+A Python ISBN barcode scanner that uses a barcode scanner and stores the ISBN numbers in an SQLite database. I will use an API (Open Library) to look up the book details using the ISBN number as save the information into a database using SQLite.  The application uses tkinter for a GUI.
 
 
 ## Features
@@ -147,15 +148,12 @@ A Python ISBN barcode scanner that uses a barcode scanner (Scan Avenger SA8900) 
 - Real-time barcode scanning using a barcode scanner
 - Detection and storage of valid ISBN barcodes in an SQLite database
 - Confirmation messages for successful barcode detection and storage
-- Captured barcode frames saved as images in a 'captures' directory
 - Validation of ISBN using the `isbnlib` library???????
+- Open Library API to look up ISBN details
+- Personal Rating system (stars-- make a function to create a XXXXX that uses if statements for number of stars and then prints out the XXXX)
+- Data anylytics (most popular genre, most books of certain genre, list 5 star books, list 1 star books, least favorite genre, least owned genre)
+- book recommendations based on data using an API???
 
-- API to gather book details
-- Store details in SQLite database
-- Room for personal book reviews
-
-- data analytics
-- API to make book recommendations??
 
 ## Prerequisites
 
@@ -183,7 +181,7 @@ You can install these dependencies using the following command:
 ## Usage
 
 Clone the repository to your local machine:
-list the main library app to run
+list the MAIN_APP_NAME to run
 other general directions to use the app
 
 ## Configuration
