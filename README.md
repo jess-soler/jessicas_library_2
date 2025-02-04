@@ -162,15 +162,21 @@ Before using the MyLibraryApp, ensure you have the following dependencies instal
 - Python 3.x
 - OpenCV (`cv2`)
 - `pyzbar` library
-- `isbnlib` library
+- pillow library
+- `isbnlib` library?????????????
 - SQLite3
 - tkinter
 
-You can install these dependencies using the following command: (ADD THE OTHER PIPS!!!)
+You can install these dependencies using the following command: 
 
-```bash
-pip install opencv-python pyzbar isbnlib
-```
+-pip install opencv-contrib-python
+-pip install pyzbar
+-pip install pillow
+-pip install tk
+
+
+
+
 
 ## Usage
 
