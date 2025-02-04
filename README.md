@@ -132,7 +132,9 @@ This README provides a detailed overview of the program's features, usage, and s
 
 
 
-### barcode scanner infomration
+### Hardware Used
+- ScanAvenger SA8900
+- https://www.amazon.com/gp/product/B07WG1ZKZR/ref=ox_sc_act_image_14?smid=A1SP5E24FDDAMS&psc=1
 
 
 # Librarian
