@@ -55,6 +55,8 @@ By the end of the project, I aim to have a fully functional library management t
 ### Week 4
 - GUI and Database testing
 - Begin Implementing barcode
+- import cv2 
+- from pyzbar.pyzbar import decode 
   
 ### Week 5
 - Barcode GUI
@@ -140,7 +142,9 @@ This README provides a detailed overview of the program's features, usage, and s
 
 # Library App
 
-A Python ISBN barcode scanner that uses a barcode scanner and stores the ISBN numbers in an SQLite database. I will use an API (Open Library) to look up the book details using the ISBN number as save the information into a database using SQLite.  The application uses tkinter for a GUI.
+A Python ISBN barcode scanner that uses a barcode scanner and stores the ISBN numbers in an SQLite database. It will use the ISBN to query the Open Library API and get book details to save to SQLite database. The application uses tkinter for a GUI.
+
+Using pyzbar to decode the one-dimensional barcode and QR code. 
 
 
 ## Features
@@ -166,13 +170,17 @@ Before using the MyLibraryApp, ensure you have the following dependencies instal
 - `isbnlib` library?????????????
 - SQLite3
 - tkinter
+- matplotlib
+- requests (for API use)
 
 You can install these dependencies using the following command: 
 
--pip install opencv-contrib-python
--pip install pyzbar
--pip install pillow
--pip install tk
+- pip install opencv-contrib-python
+- pip install pyzbar
+- pip install pillow
+- pip install tk
+- pip install matplotlib
+- pip install requests
 
 
 
