@@ -77,11 +77,11 @@ class LibraryApp:
             database_display frame is the bottom half of the window
             the bottom half frame is 1200 pixels wide
             1200 - 20 = 1180 pixels wide with 10 padding on each side
-            it is placed 250 pixels from the top with 10 padding on top
+            it is placed 550 pixels from the top with 10 padding on top
             500 - 10 = 490 pixels tall with 10 padding on top
         """
         self.database_display_frame = tk.Frame(self.main_app_window, bd=2, relief=tk.RAISED)
-        self.database_display_frame.place(x=10, y=250, width=1180, height=240)
+        self.database_display_frame.place(x=10, y=450, width=1180, height=340)
         
               
     def create_buttons(self):
