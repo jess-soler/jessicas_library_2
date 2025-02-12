@@ -119,9 +119,9 @@ This README provides a detailed overview of the program's features, usage, and s
 
 # Library App
 
-A Python ISBN barcode scanner that uses a barcode scanner and stores the ISBN numbers in an SQLite database. It will use the ISBN to query the Open Library API and get book details to save to SQLite database. The application uses tkinter for a GUI.
+A Python-based library application that uses a barcode scanner to capture ISBN numbers.  The application queries the Open Library API to fetch book details based on the ISBN number and saves them in an SQLite database. The database will be managed with a Tkinter GUI.
 
-Using pyzbar to decode the one-dimensional barcode and QR code. 
+Using (libraries) pyzbar to decode the one-dimensional barcode and QR code. 
 
 ### Hardware Used
 - ScanAvenger SA8900
@@ -130,14 +130,20 @@ Using pyzbar to decode the one-dimensional barcode and QR code.
 - 
 ## Features
 
-- Real-time barcode scanning using a barcode scanner
-- Detection and storage of valid ISBN barcodes in an SQLite database
-- Confirmation messages for successful barcode detection and storage
-- Validation of ISBN using the `isbnlib` library???????
-- Open Library API to look up ISBN details
-- Personal Rating system (stars-- make a function to create a XXXXX that uses if statements for number of stars and then prints out the XXXX)
-- Data anylytics (most popular genre, most books of certain genre, list 5 star books, list 1 star books, least favorite genre, least owned genre)
-- book recommendations based on data using an API???
+- Real-time barcode scanning using SA8900 barcode scanner
+- ISBN validation using the isbnlib library **********
+- Open Library API integration for fetching book details ******************
+- SQLite database storage for book records
+- Tkinter GUI for managing book records
+- Personal rating system (displays star ratings) *****************
+- Data analytics ********************
+      - most popular genre
+      - amounts of books per genre
+      - list of 5 star books
+      - list of 1 star books
+      - least owned genre
+      - most owned genre
+- Book recommendations based on stored data ************
 
 
 ## Prerequisites
