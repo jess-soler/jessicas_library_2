@@ -15,17 +15,18 @@ DATABASE = 'library.db'
 CREATE_AUTHOR_TABLE = """
     CREATE TABLE IF NOT EXISTS tbl_author (
         auth_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        auth_fname TEXT,
-        auth_lname TEXT
+        auth_fname TEXT NOT NULL,
+        auth_lname TEXT NOT NULL
     );
 """
 
 CREATE_BOOK_TABLE = """
     CREATE TABLE IF NOT EXISTS tbl_book (
         bk_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        bk_title TEXT,
+        bk_isbn TEXT UNIQUE NOT NULL,
+        bk_title TEXT NOT NULL,
         bk_genre TEXT,
-        bk_rating INTEGER,
+        bk_rating INTEGER CHECK (bk_rating BETWEEN 1 AND 5),
         bk_pub_date TEXT,
         auth_id INTEGER,
         CONSTRAINT fk_author
@@ -40,13 +41,18 @@ INSERT_AUTHOR = """
 """
 
 INSERT_BOOK = """
-    INSERT INTO tbl_book (bk_title, bk_genre, bk_rating, bk_pub_date, auth_id) VALUES (?, ?, ?, ?, ?);
+    INSERT INTO tbl_book (bk_isbn, bk_title, bk_genre, bk_rating, bk_pub_date, auth_id) 
+    VALUES (?, ?, ?, ?, ?, ?);
 """
 
 FETCH_ALL_BOOKS = "SELECT * FROM tbl_book;"
 FETCH_BOOK = "SELECT * FROM tbl_book WHERE bk_id = ?;"
 DELETE_BOOK = "DELETE FROM tbl_book WHERE bk_id = ?;"
-UPDATE_BOOK = "UPDATE tbl_book SET bk_title = ?, bk_genre = ?, bk_rating = ?, bk_pub_date = ?, auth_id = ? WHERE bk_id = ?;"
+UPDATE_BOOK = """
+    UPDATE tbl_book 
+    SET bk_isbn = ?, bk_title = ?, bk_genre = ?, bk_rating = ?, bk_pub_date = ?, auth_id = ? 
+    WHERE bk_id = ?;
+"""
 CLEAR_BOOKS = "DELETE FROM tbl_book;"
 
 #---FUNCTIONS--------------------------------------------------------------------FUNCTIONS----#
@@ -62,10 +68,10 @@ def add_author(auth_fname, auth_lname):
         cursor.execute(INSERT_AUTHOR, (auth_fname, auth_lname))
         messagebox.showinfo("Author Added", "Author has been added.")
 
-def add_book(bk_title, bk_genre, bk_rating, bk_pub_date, auth_id):
+def add_book(bk_isbn, bk_title, bk_genre, bk_rating, bk_pub_date, auth_id):
     with sqlite3.connect(DATABASE) as connection:
         cursor = connection.cursor()
-        cursor.execute(INSERT_BOOK, (bk_title, bk_genre, bk_rating, bk_pub_date, auth_id))
+        cursor.execute(INSERT_BOOK, (bk_isbn, bk_title, bk_genre, bk_rating, bk_pub_date, auth_id))
         messagebox.showinfo("Book Added", "Book has been added.")
 
 def fetch_books():
@@ -86,10 +92,10 @@ def delete_book(bk_id: int):
         cursor.execute(DELETE_BOOK, (bk_id,))
         messagebox.showinfo("Book Deleted", "Book has been deleted.")
 
-def save_book(bk_id, bk_title, bk_genre, bk_rating, bk_pub_date, auth_id):
+def save_book(bk_id, bk_isbn, bk_title, bk_genre, bk_rating, bk_pub_date, auth_id):
     with sqlite3.connect(DATABASE) as connection:
         cursor = connection.cursor()
-        cursor.execute(UPDATE_BOOK, (bk_title, bk_genre, bk_rating, bk_pub_date, auth_id, bk_id))
+        cursor.execute(UPDATE_BOOK, (bk_isbn, bk_title, bk_genre, bk_rating, bk_pub_date, auth_id, bk_id))
         messagebox.showinfo("Book Updated", "Book has been updated.")
 
 # def clear_books():
