@@ -16,7 +16,7 @@ class LibraryApp:
     def __init__(self, main_app_window):
         self.main_app_window = main_app_window
         self.main_app_window.title("Jessica's Library Database")
-        self.main_app_window.geometry("1200x500")
+        self.main_app_window.geometry("1200x900")
         
         # create tables
         db_library.create_tables()
@@ -127,6 +127,11 @@ class LibraryApp:
         # title, author, genre, rating, pub_date
         # AI Code, edited
         
+        # ISBN input field
+        tk.Label(self.input_frame, text="ISBN:").pack(anchor="w")
+        self.isbn_entry = tk.Entry(self.input_frame)
+        self.isbn_entry.pack(fill="x", padx=5, pady=2)
+        
         # Title input field
         tk.Label(self.input_frame, text="Title:").pack(anchor="w")
         self.title_entry = tk.Entry(self.input_frame)
@@ -155,6 +160,7 @@ class LibraryApp:
     
     def clear_input_fields(self):
         # AI Code
+        self.isbn_entry.delete(0, tk.END)
         self.title_entry.delete(0, tk.END)
         self.author_entry.delete(0, tk.END)
         self.genre_entry.delete(0, tk.END)
@@ -165,8 +171,9 @@ class LibraryApp:
     def create_database_display(self):
         # create a treeview to display the database
         # AI Code, edited
-        self.tree = ttk.Treeview(self.database_display_frame, columns=("ID", "Title", "Author", "Genre", "Rating", "Publication Date"), show="headings")
+        self.tree = ttk.Treeview(self.database_display_frame, columns=("ID", "ISBN", "Title", "Author", "Genre", "Rating", "Publication Date"), show="headings")
         self.tree.heading("ID", text="ID")
+        self.tree.heading("ISBN", text="ISBN")
         self.tree.heading("Title", text="Title")
         self.tree.heading("Author", text="Author")
         self.tree.heading("Genre", text="Genre")
@@ -206,22 +213,23 @@ class LibraryApp:
 
     def get_entry(self):
         # .get() function to get the text from the entry field
+        isbn = self.isbn_entry.get()
         title = self.title_entry.get()
         author = self.author_entry.get()
         genre = self.genre_entry.get()
         rating = self.rating_entry.get()
         pub_date = self.pub_date_entry.get()
         
-        return title, author, genre, rating, pub_date
+        return isbn, title, author, genre, rating, pub_date
 
 
     def call_add_book(self):
         
         # get the book details from the input fields
-        title, author, genre, rating, pub_date = self.get_entry()
+        isbn, title, author, genre, rating, pub_date = self.get_entry()
 
         # call database function to add a book
-        db_library.add_book(title, author, genre, rating, pub_date)
+        db_library.add_book(isbn, title, author, genre, rating, pub_date)
         
         # update the treeview after adding a book
         self.update_treeview()
@@ -240,14 +248,16 @@ class LibraryApp:
         
         # save the tuple as book_details
         book_details = self.tree.item(selected_item)["values"]
-        
-        # AI Code
-        # populate input fields with current details
-        self.title_entry.insert(0, book_details[1])
-        self.author_entry.insert(0, book_details[2])
-        self.genre_entry.insert(0, book_details[3])
-        self.rating_entry.insert(0, book_details[4])
-        self.pub_date_entry.insert(0, book_details[5])
+   
+# indexes?!?!     
+# AI Code
+# populate input fields with current details
+        self.isbn_entry.insert(0, book_details[1])
+        self.title_entry.insert(0, book_details[2])
+        self.author_entry.insert(0, book_details[3])
+        self.genre_entry.insert(0, book_details[4])
+        self.rating_entry.insert(0, book_details[5])
+        self.pub_date_entry.insert(0, book_details[6])
         
         
     def call_delete_book(self):
@@ -266,6 +276,7 @@ class LibraryApp:
         
         # .get() the text from the entry field
         bk_id = self.tree.item(self.tree.selection())["values"][0]
+        bk_isbn = self.isbn_entry.get()
         bk_title = self.title_entry.get()
         bk_author = self.author_entry.get()
         bk_genre = self.genre_entry.get()
