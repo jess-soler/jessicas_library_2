@@ -57,7 +57,7 @@ class LibraryApp:
             the input_frame is in the upper left corner
             500/2 = 250 with 10 pixels of padding on each side = 240
         """
-        self.input_frame.place(x=100, y=10, width=380, height=240)
+        self.input_frame.place(x=100, y=10, width=380, height=340)
         
         
         # upper right frame = buttons
@@ -69,7 +69,7 @@ class LibraryApp:
             410 + 380 + 10 = 800
         """
         self.button_frame = tk.Frame(self.main_app_window, bd=2, relief=tk.RAISED)
-        self.button_frame.place(x=710, y=10, width=380, height=240)
+        self.button_frame.place(x=710, y=10, width=380, height=440)
         
         
         # bottom half frame = database display
