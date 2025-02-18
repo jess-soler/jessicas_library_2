@@ -154,6 +154,7 @@ Before using the MyLibraryApp, ensure you have the following dependencies instal
 - tkinter
 - SQLite3
 - requests (for API use)
+- json
 
 - isbnlib -- to format ISBN number????
 
