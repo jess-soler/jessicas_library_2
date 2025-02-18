@@ -11,12 +11,15 @@ from tkinter import ttk
 # import the db_library module
 import db_library
 
+
 #----Class----------------------------------------------------------------------------------------------------#
 class LibraryApp:
     def __init__(self, main_app_window):
         self.main_app_window = main_app_window
         self.main_app_window.title("Jessica's Library Database")
         self.main_app_window.geometry("1200x900")
+        
+        self.barcode = ""
         
         # create tables
         db_library.create_tables()
@@ -57,8 +60,9 @@ class LibraryApp:
             the input_frame is in the upper left corner
             500/2 = 250 with 10 pixels of padding on each side = 240
         """
-        self.input_frame.place(x=100, y=10, width=380, height=340)
-        
+        self.input_frame.place(x=10, y=10, width=380, height=340)
+        # title for the input frame
+        tk.Label(self.input_frame, text="Book Details").pack()
         
         # upper right frame = buttons
         """
@@ -69,7 +73,13 @@ class LibraryApp:
             410 + 380 + 10 = 800
         """
         self.button_frame = tk.Frame(self.main_app_window, bd=2, relief=tk.RAISED)
-        self.button_frame.place(x=710, y=10, width=380, height=440)
+        self.button_frame.place(x=410, y=10, width=380, height=340)
+        # title for the buttons frame
+        tk.Label(self.button_frame, text="Book Database Functions").pack()
+        
+        # barcode frame to be put underneath the input frame
+        self.barcode_frame = tk.Frame(self.main_app_window, bd=2, relief=tk.RAISED)
+        self.barcode_frame.place(x=800, y=10, width=380, height=340)
         
         
         # bottom half frame = database display
@@ -82,8 +92,12 @@ class LibraryApp:
         """
         self.database_display_frame = tk.Frame(self.main_app_window, bd=2, relief=tk.RAISED)
         self.database_display_frame.place(x=10, y=450, width=1180, height=340)
+        # title for the database display frame
+        tk.Label(self.database_display_frame, text="Scanner").pack()
         
-              
+
+        
+             
     def create_buttons(self):
         # add, edit, delete, save, clear input fields, close buttons
         
@@ -121,6 +135,10 @@ class LibraryApp:
         # used format from AI code
         # self.clear_database_button = tk.Button(self.button_frame, text="Clear Database", command=self.call_clear_database)
         # self.clear_database_button.pack(side="top", fill="x", padx=5, pady=0)
+        
+        # scan barcode button
+        self.scan_barcode_button = tk.Button(self.barcode_frame, text="Scan Barcode", command=self.call_scan_barcode)
+        self.scan_barcode_button.pack(side="top", fill="x", padx=5, pady=7)
         
         
     def create_input_fields(self):
@@ -294,9 +312,27 @@ class LibraryApp:
     # def call_clear_database(self):
     #     db_library.clear_database()
     #     self.update_treeview()
+    
+    def call_scan_barcode(self):
+        """ The call_scan_barcode method sets the focus to the isbn_entry field
+        when the "scan barcode" button is clicked.
+        The isbn_entry field is bound to the <return> event, which triggers the capture_barcode method
+        the capture_barcode method caputres the barcode input from the isbn_entry field and processes it"""
+        # set focus to the isbn_entry field
+        self.isbn_entry.focus()
+        
+    def capture_barcode(self, event):
+        """ The capture_barcode method captures the barcode input from the isbn_entry field and processes it"""
+        self.isbn = self.isbn_entry.get()
+        # add barcode to the input field
+        self.isbn_entry.delete(0, tk.END)
+        self.isbn_entry.insert(0, self.isbn)
+        
+        
 
 # initialize tkinter and run the app
 if __name__ == "__main__":
     root = tk.Tk()
     app = LibraryApp(root)
+    
 #MOVE DATABASE INITIALIZATION HERE???
