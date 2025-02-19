@@ -151,14 +151,18 @@ Using (libraries) pyzbar to decode the one-dimensional barcode and QR code.
 Before using the MyLibraryApp, ensure you have the following dependencies installed:
 
 - Python 3.x
+- tkinter
+- SQLite3
+- requests (for API use)
+- json
+
+- isbnlib -- to format ISBN number????
+
 - OpenCV (`cv2`)
 - `pyzbar` library
 - pillow library
-- `isbnlib` library?????????????
-- SQLite3
-- tkinter
 - matplotlib
-- requests (for API use)
+
 
 You can install these dependencies using the following command: 
 
