@@ -15,7 +15,7 @@ class Bibliography():
         self.isbn = isbn
         
         # set this to False to only display the data
-        self.IS_DEBUGGING = True
+        self.IS_DEBUGGING = False
         
         # Open Library API URL        
         self.URL = f"https://openlibrary.org/isbn/{self.isbn}.json"
