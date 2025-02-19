@@ -4,12 +4,18 @@
     Date: 1/20/25
     Purpose: 
 """
+# GUI Library
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 
+# import requests for API use, json for data handling
+import requests
+import json
+
 # import the db_library module
 import db_library
+
 
 
 #----Class----------------------------------------------------------------------------------------------------#
