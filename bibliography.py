@@ -21,18 +21,6 @@ class Bibliography():
         self.URL = f"https://openlibrary.org/isbn/{self.isbn}.json"
         
         
-        
-        self.book_info = self.get_book_info()
-        self.book_info = self.book_info[0]
-        self.title = self.book_info['volumeInfo']['title']
-        self.author = self.book_info['volumeInfo']['authors'][0]
-        self.genre = self.book_info['volumeInfo']['categories'][0]
-        self.rating = self.book_info['volumeInfo']['averageRating']
-        self.pub_date = self.book_info['volumeInfo']['publishedDate']
-        self.description = self.book_info['volumeInfo']['description']
-        self.cover = self.book_info['volumeInfo']['imageLinks']['thumbnail']
-        self.auth_id = self.get_author_id()
-        
     def get_book_info(self):
         # use the requests.get() function
         # with the parameter of the self.URL
@@ -58,4 +46,58 @@ class Bibliography():
                 print("\nData as Python Dictionary:")
                 print(self.data)
                 
+            # # print the data using the dictionary created from the API JSON data
+            # print(f"\n{self.data.get('title')}")
+            # print(f"by {self.data.get('authors')}")
+            # print(f"Published: {self.data.get('publish_date')}")
             
+            return self.data
+        
+        else:
+            print("API Not Available")
+            print(f"Error: {response.status_code}")
+            return None                
+            
+            
+    def get_title(self):
+        return self.data.get('title')
+    
+    def get_authors(self):
+        return self.data.get('authors')
+    
+    def get_publish_date(self):
+        return self.data.get('publish_date')
+    
+    # def get_publishers(self):
+    #     return self.data.get('publishers')
+    
+    # def get_number_of_pages(self):
+    #     return self.data.get('number_of_pages')
+    
+    # def get_subjects(self):
+    #     return self.data.get('subjects')
+    
+    # def get_isbn_10(self):
+    #     return self.data.get('isbn_10')
+    
+    # def get_isbn_13(self):
+    #     return self.data.get('isbn_13')
+    
+    # def get_cover(self):
+    #     return self.data.get('cover')
+    
+    # def get_languages(self):
+    #     return self.data.get('languages')
+    
+    # def get_weight(self):
+    #     return self.data.get('weight')
+    
+    # def get_physical_dimensions(self):
+    #     return self.data.get('physical_dimensions')
+    
+    # def get_physical_format(self):
+    #     return self.data.get('physical_format')
+    
+    # def get_publish_places(self):
+    #     return self.data.get('publish_places')
+    

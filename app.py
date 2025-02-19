@@ -9,9 +9,8 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 
-# import requests for API use, json for data handling
-import requests
-import json
+# import the Bibliography class from the bibliography module
+from bibliography import Bibliography
 
 # import the db_library module
 import db_library
@@ -306,7 +305,7 @@ class LibraryApp:
         bk_genre = self.genre_entry.get()
         bk_rating = self.rating_entry.get()
         bk_pub_date = self.pub_date_entry.get()  
-        db_library.save_book(bk_id, bk_title, bk_author, bk_genre, bk_rating, bk_pub_date)
+        db_library.save_book(bk_id, bk_isbn, bk_title, bk_author, bk_genre, bk_rating, bk_pub_date)
         
         self.update_treeview()
         self.clear_input_fields()
@@ -333,6 +332,29 @@ class LibraryApp:
         # add barcode to the input field
         self.isbn_entry.delete(0, tk.END)
         self.isbn_entry.insert(0, self.isbn)
+        self.get_bibliography(self.isbn)
+        
+    def get_bibliography(self, isbn):
+        
+        # create a Bibliography object
+        bib = Bibliography(isbn)
+        
+        # get the book information
+        book_info = bib.get_book_info()
+            
+        if book_info:
+            self.title_entry.delete(0, tk.END)
+            self.title_entry.insert(0, bib.get_title())
+            
+            self.author_entry.delete(0, tk.END)
+            self.author_entry.insert(0, bib.get_author())
+            
+            self.pub_date_entry.delete(0, tk.END)
+            self.pub_date_entry.insert(0, bib.get_pub_date())
+            
+        self.title = bib.get_title()
+        print(book_info)
+        self.title_entry.insert(0, self.title)
         
         
 
