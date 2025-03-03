@@ -47,6 +47,11 @@ INSERT_BOOK = """
     VALUES (?, ?, ?, ?, ?, ?, ?, ?);
 """
 
+FETCH_ALL_AUTHORS = "SELECT * FROM tbl_author;"
+FETCH_AUTHOR = "SELECT * FROM tbl_author WHERE auth_id = ?;"
+DELETE_AUTHOR = "DELETE FROM tbl_author WHERE auth_id = ?;"
+UPDATE_AUTHOR = "UPDATE tbl_author SET auth_fname = ?, auth_lname = ? WHERE auth_id = ?;"
+CLEAR_AUTHORS = "DELETE FROM tbl_author;"
 
 FETCH_ALL_BOOKS = "SELECT * FROM tbl_book;"
 FETCH_BOOK = "SELECT * FROM tbl_book WHERE bk_id = ?;"
@@ -56,7 +61,6 @@ UPDATE_BOOK = """
     SET bk_isbn = ?, bk_title = ?, bk_genre = ?, bk_rating = ?, bk_pub_date = ?, bk_description = ?, bk_cover = ?, auth_id = ? 
     WHERE bk_id = ?;
 """
-
 CLEAR_BOOKS = "DELETE FROM tbl_book;"
 
 #---FUNCTIONS--------------------------------------------------------------------FUNCTIONS----#
