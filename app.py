@@ -142,6 +142,9 @@ class LibraryApp:
         self.scan_barcode_button = tk.Button(self.barcode_frame, text="Scan Barcode", command=self.call_scan_barcode)
         self.scan_barcode_button.pack(side="top", fill="x", padx=5, pady=7)
         
+        # search ISBN button
+        self.search_isbn_button = tk.Button(self.barcode_frame, text="Search ISBN", command=self.call_format_isbn)
+        self.search_isbn_button.pack(side="top", fill="x", padx=5, pady=7)
         
     def create_input_fields(self):
         # title, author, genre, rating, pub_date
@@ -331,27 +334,7 @@ class LibraryApp:
         self.isbn_entry.insert(0, self.isbn)
         self.get_bibliography(self.isbn)
         
-    def get_bibliography(self, isbn):
-        
-        # create a Bibliography object
-        bib = Bibliography(isbn)
-        
-        # get the book information
-        book_info = bib.get_book_info()
-            
-        if book_info:
-            self.title_entry.delete(0, tk.END)
-            self.title_entry.insert(0, bib.get_title())
-            
-            self.author_entry.delete(0, tk.END)
-            self.author_entry.insert(0, bib.get_author())
-            
-            self.pub_date_entry.delete(0, tk.END)
-            self.pub_date_entry.insert(0, bib.get_pub_date())
-            
-        self.title = bib.get_title()
-        print(book_info)
-        self.title_entry.insert(0, self.title)
+
         
         
 
