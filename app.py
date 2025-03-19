@@ -319,14 +319,15 @@ class LibraryApp:
     #     self.update_treeview()
     
     def call_scan_barcode(self):
-        """ The call_scan_barcode method sets the focus to the isbn_entry field
-        when the "scan barcode" button is clicked.
+        """ The call_scan_barcode method sets the focus to the isbn_entry field when the "scan barcode" button is clicked.
         The isbn_entry field is bound to the <return> event, which triggers the capture_barcode method
         the capture_barcode method caputres the barcode input from the isbn_entry field and processes it"""
         # set focus to the isbn_entry field
         self.isbn_entry.focus()
+# if scanner isn't putting an ISBN number in the entry field-- edit this
     
     def call_format_isbn(self):
+        
         
         
 

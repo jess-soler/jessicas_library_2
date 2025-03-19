@@ -12,6 +12,8 @@ class FormatISBN:
         """return the isbn without dashes"""
         
         try:
+            # check if the ISBN is valid 13 digit or 10 digit
+            # canonical means to remove dashes and spaces
             if isbnlib.is_isbn13(self.isbn):
                 return isbnlib.canonical(self.isbn)
             elif isbnlib.is_isbn10(self.isbn):
@@ -26,6 +28,8 @@ class FormatISBN:
         """return the isbn with dashes for display"""
         
         try:
+            # check if the ISBN is valid 13 digit or 10 digit
+            # mask means to add dashes
             if isbnlib.is_isbn13(self.isbn) or isbnlib.is_isbn10(self.isbn):
                 return isbnlib.mask(self.isbn)
             else:
@@ -35,13 +39,22 @@ class FormatISBN:
         
         
 def main():
+    """test the FormatISBN class"""
+    
+    # 13 digit ISBN
     isbn = FormatISBN('978-3-16-148410-0')
     print(isbn.isbn_api())
     print(isbn.isbn_display())
     
+    # 10 digit ISBN
     ten_digit_isbn = FormatISBN('0-439-02348-3')
     print(ten_digit_isbn.isbn_api())
     print(ten_digit_isbn.isbn_display())
+    
+    # invalid ISBN
+    invalid_isbn = FormatISBN('1234567890')
+    print(invalid_isbn.isbn_api())
+    print(invalid_isbn.isbn_display())
     
 if __name__ == '__main__':
     main()
