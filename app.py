@@ -9,9 +9,6 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 
-# import the Bibliography class from the bibliography module
-from bibliography import Bibliography
-
 # import the db_library module
 import db_library
 
