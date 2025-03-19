@@ -8,6 +8,18 @@ class FormatISBN:
     def __init__(self, isbn):
         self.isbn = isbn
         
+    def isbn_valid(self):
+        """verifies isbn is valid and returns boolean"""
+        
+        try:
+            # check if the ISBN is valid 13 digit or 10 digit
+            if isbnlib.is_isbn13(self.isbn) or isbnlib.is_isbn10(self.isbn):
+                return True
+            else:
+                return False
+        except Exception as e:
+            return str(e)
+        
     def isbn_api(self):
         """return the isbn without dashes"""
         
