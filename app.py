@@ -327,7 +327,22 @@ class LibraryApp:
 # if scanner isn't putting an ISBN number in the entry field-- edit this
     
     def call_format_isbn(self):
+        """ The call_format_isbn method formats the ISBN number in the isbn_entry field when the "search ISBN" button is clicked.
+        The ISBN number is formatted using the FormatISBN class from the format_isbn.py module"""
         
+        # get the ISBN number from the isbn_entry field
+        isbn = self.isbn_entry.get()
+        
+        # verify the ISBN is valid
+        
+        # if the ISBN is valid
+        # pop up window says ISBN is valid
+        # format the ISBN number to send to API
+        
+        # if the ISBN is invalid
+        # pop up window says ISBN is invalid
+        # clear the entry field
+        # set focus to the entry field
         
         
 
