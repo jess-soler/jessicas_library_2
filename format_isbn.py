@@ -1,6 +1,6 @@
 # format_isbn.py
 # jessica soler
-# class to format isbn numbers using isbnlib
+# class to validate and format isbn numbers using isbnlib
 
 import isbnlib
 
@@ -26,6 +26,7 @@ class FormatISBN:
         try:
             # check if the ISBN is valid 13 digit or 10 digit
             # canonical means to remove dashes and spaces
+            # to_isbn13 converts 10 digit ISBN to 13 digit ISBN
             if isbnlib.is_isbn13(self.isbn):
                 return isbnlib.canonical(self.isbn)
             elif isbnlib.is_isbn10(self.isbn):
@@ -41,7 +42,7 @@ class FormatISBN:
         
         try:
             # check if the ISBN is valid 13 digit or 10 digit
-            # mask means to add dashes
+            # mask means to add dashes back in for display
             if isbnlib.is_isbn13(self.isbn) or isbnlib.is_isbn10(self.isbn):
                 return isbnlib.mask(self.isbn)
             else:
@@ -54,14 +55,16 @@ def main():
     """test the FormatISBN class"""
     
     # 13 digit ISBN
-    isbn = FormatISBN('978-3-16-148410-0')
-    print(isbn.isbn_api())
-    print(isbn.isbn_display())
+    thirteen_isbn = FormatISBN('978-3-16-148410-0')
+    print(thirteen_isbn.isbn_api())
+    print(thirteen_isbn.isbn_display())
+    print(thirteen_isbn.isbn_valid())
     
     # 10 digit ISBN
     ten_digit_isbn = FormatISBN('0-439-02348-3')
     print(ten_digit_isbn.isbn_api())
     print(ten_digit_isbn.isbn_display())
+    print(ten_digit_isbn.isbn_valid())
     
     # invalid ISBN
     invalid_isbn = FormatISBN('1234567890')
