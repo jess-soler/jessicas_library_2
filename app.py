@@ -325,14 +325,8 @@ class LibraryApp:
         the capture_barcode method caputres the barcode input from the isbn_entry field and processes it"""
         # set focus to the isbn_entry field
         self.isbn_entry.focus()
-        
-    def capture_barcode(self, event):
-        """ The capture_barcode method captures the barcode input from the isbn_entry field and processes it"""
-        self.isbn = self.isbn_entry.get()
-        # add barcode to the input field
-        self.isbn_entry.delete(0, tk.END)
-        self.isbn_entry.insert(0, self.isbn)
-        self.get_bibliography(self.isbn)
+    
+    def call_format_isbn(self):
         
 
         
