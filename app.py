@@ -331,9 +331,11 @@ class LibraryApp:
         The ISBN number is formatted using the FormatISBN class from the format_isbn.py module"""
         
         # get the ISBN number from the isbn_entry field
-        isbn = self.isbn_entry.get()
+        current_isbn = self.isbn_entry.get()
         
         # verify the ISBN is valid
+        
+        
         
         # if the ISBN is valid
         # pop up window says ISBN is valid
